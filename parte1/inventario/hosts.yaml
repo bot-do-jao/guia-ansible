@@ -1,0 +1,11 @@
+lappis:
+  hosts:
+    vm1:
+      ansible_user: lappis
+      ansible_host: <ip-vm1>
+    vm2:
+      ansible_user: lappis
+      ansible_host: <ip-vm2>
+    vm3:
+      ansible_user: lappis
+      ansible_host: <ip-vm3>

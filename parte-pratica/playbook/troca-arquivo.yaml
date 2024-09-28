@@ -1,0 +1,17 @@
+- name: Modificar arquivo com nome personalizado
+  hosts: vm1
+  become: yes
+  vars:
+    arquivo_origem: ../txt/vc.txt
+    arquivo_destino: ~/vcs.txt
+
+  tasks:
+    - name: Copiar o arquivo original para um arquivo único
+      ansible.builtin.copy:
+        src: "{{ arquivo_origem }}"
+        dest: "{{ arquivo_destino }}"
+
+    - name: Adicionar linha personalizada ao arquivo
+      ansible.builtin.lineinfile:
+        path: "{{ arquivo_destino }}"
+        line: "{{ pessoa }} esteve aqui"

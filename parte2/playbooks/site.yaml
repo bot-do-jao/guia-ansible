@@ -1,0 +1,35 @@
+- name: Configurar e verificar as máquinas do grupo lappis
+  hosts: lappis
+  become: yes
+
+  tasks:
+    - name: Verificar conectividade com todas as máquinas
+      ansible.builtin.ping:
+
+    - name: Instalar Nginx em todas as máquinas
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+      notify:
+        - Iniciar e habilitar Nginx
+
+    - name: Criar arquivo HTML de Olá Mundo em vm1
+      ansible.builtin.copy:
+        dest: /var/www/html/index.html
+        content: |
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <title>Olá Mundo</title>
+          </head>
+          <body>
+              <h1>Olá Mundo!</h1>
+          </body>
+          </html>
+
+  handlers:
+    - name: Iniciar e habilitar Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
