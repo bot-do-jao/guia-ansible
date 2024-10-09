@@ -24,7 +24,7 @@ Vamos explorar alguns comandos básicos para verificar a conectividade e gerenci
 ### 1. Testando a Conectividade com `ping`
 
 ```bash
-ansible lappis -i inventario/hosts.yaml -m ping
+ansible lappis -i inventario/inventory.yaml -m ping --ask-pass
 ```
 
 - Este comando utiliza o módulo `ping` do Ansible para verificar se todas as máquinas no grupo `lappis` estão acessíveis.
@@ -32,7 +32,7 @@ ansible lappis -i inventario/hosts.yaml -m ping
 ### 2. Instalando e Ativando o Nginx
 
 ```bash
-ansible lappis -i inventario/hosts.yaml -m apt -a "name=nginx state=present" --become
+ansible lappis -i inventario/inventory.yaml -m apt -a "name=nginx state=present" --ask-pass --ask-become-pass --become --become-method=su
 ```
 
 - O módulo `apt` é usado para instalar o pacote `nginx` em todas as máquinas.
@@ -42,7 +42,7 @@ ansible lappis -i inventario/hosts.yaml -m apt -a "name=nginx state=present" --b
 ### 3. Copiando um Arquivo HTML para uma Máquina Específica
 
 ```bash
-ansible vm1 -i inventario/hosts.yaml -m copy -a "src=html/hello.html dest=/var/www/html/index.html" --become
+ansible vm1 -i inventario/inventory.yaml -m copy -a "src=html/hello.html dest=/var/www/html/index.html" --ask-pass --ask-become-pass --become --become-method=su
 ```
 
 - Este comando usa o módulo `copy` para transferir o arquivo `hello.html` para o diretório web de uma única máquina (`vm1`).

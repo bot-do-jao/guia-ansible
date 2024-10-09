@@ -1,5 +1,5 @@
 
-# Aula Avançada: Evoluindo para Playbooks
+# Evoluindo para Playbooks
 
 ## O que é um Playbook?
 
@@ -24,7 +24,7 @@ Para isso, visualize o arquivo `site.yaml` na pasta `playbook`
 Para executar este playbook, basta utilizar o seguinte comando:
 
 ```bash
-ansible-playbook -i ../parte1/inventario/hosts.yaml site.yaml
+ansible-playbook -i ../parte1/inventario/inventory.yaml playbooks/site.yaml --ask-pass --ask-become-pass
 ```
 
 Isso aplicará todas as tarefas definidas no playbook às máquinas listadas no arquivo de inventário `hosts`.

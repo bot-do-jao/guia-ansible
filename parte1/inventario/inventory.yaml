@@ -1,0 +1,8 @@
+lappis:
+  hosts:
+    vm1:
+      ansible_user: lappis
+      # ansible_host: 10.0.0.88
+    vm2:
+      ansible_user: lappis
+      # ansible_host: 10.0.0.89

@@ -1,6 +1,7 @@
 - name: Configurar e verificar as máquinas do grupo lappis
   hosts: lappis
-  become: yes
+  become: true
+  become_method: su
 
   tasks:
     - name: Verificar conectividade com todas as máquinas
@@ -13,17 +14,15 @@
       notify:
         - Iniciar e habilitar Nginx
 
-    - name: Criar arquivo HTML de Olá Mundo em vm1
+    - name: Criar arquivo HTML de Olá Mundo nas VMs
       ansible.builtin.copy:
         dest: /var/www/html/index.html
         content: |
           <!DOCTYPE html>
           <html>
-          <head>
-              <title>Olá Mundo</title>
-          </head>
           <body>
-              <h1>Olá Mundo!</h1>
+              <h1>Ola Mundo!</h1>
+              <p>To aqui pelo playbook</p>
           </body>
           </html>
 
