@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  ssh00:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: insecure_ssh_server
+    container_name: insecure_ssh_server00
+    ports:
+      - '9000:22'
+
+  ssh01:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: insecure_ssh_server
+    container_name: insecure_ssh_server01
+    ports:
+      - '9001:22'

@@ -15,6 +15,12 @@ Para mais detalhes, você pode consultar a [documentação oficial](https://docs
 
 Antes de começar a utilizar o Ansible, é necessário criar um arquivo de inventário que liste os hosts (máquinas) que serão gerenciados. Vamos configurar um arquivo de inventário básico com três máquinas virtuais. Esse arquivo está disponivel na pasta inventario, e foi feito em formato yaml mas existem outros padrões de formato.
 
+No caso, estamos usando um servidor ssh presente na pasta ../VMs para realizar a conexão com as máquinas virtuais.
+
+Com isso, siga para essa pasta e execute o tutorial.
+
+Após ele, com os IPs anotados, atualizemos o arquivo de inventário.
+
 
 
 ## Comandos Básicos do Ansible
